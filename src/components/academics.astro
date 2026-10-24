@@ -1,0 +1,157 @@
+---
+const education = [
+  {
+    degree: "Bachelor of Engineering (B.E.) — Computer Science Engineering",
+    institution: "New Horizon College of Engineering, Bangalore",
+    affiliation: "Affiliated with Visvesvaraya Technological University (VTU), Belagavi",
+    period: "2023 – 2027",
+    status: "Undergraduate (Pursuing)",
+    highlights: [
+      "Core coursework: Data Structures & Algorithms, Object-Oriented Programming (Java/Python/C), Database Management Systems (MySQL).",
+      "Hands-on project development in AI-integrated workflows, full-stack systems, and ETL data pipelines.",
+      "Solid theoretical and practical foundation in database architecture, software engineering, and analytical modeling.",
+    ],
+  },
+  {
+    degree: "Class XII — Central Board of Secondary Education (CBSE)",
+    institution: "Narayana e-Techno School, Bangalore",
+    affiliation: "Senior Secondary Education (PCM)",
+    period: "2021 – 2023",
+    status: "Completed",
+    highlights: [
+      "Rigorous pre-engineering foundation in Mathematics, Physics, Chemistry, and Computer Science.",
+      "Cultivated deep analytical thinking and competitive problem-solving skills.",
+    ],
+  },
+];
+
+const achievements = [
+  {
+    type: "Patent Publication",
+    badge: "Patent 2026",
+    title: "Health-Aware Predictive Mobility Intelligence System",
+    issuer: "Official Patent Application Publication — App No. 202641087136 A",
+    year: "2026",
+    description: "Inventive system modeling health-aware mobility intelligence, integrating multi-factor telemetry with predictive algorithms for optimized and adaptive transit guidance.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+    badgeColor: "bg-amber-400/10 text-amber-300 border-amber-400/30",
+  },
+  {
+    type: "Hackathon Recognition",
+    badge: "Honor / Award",
+    title: "GHC India (GHCI) 25 AI Hackathon",
+    issuer: "Grace Hopper Celebration India (GHCI)",
+    year: "2025",
+    description: "Advanced to Round 2 in a national-level competitive AI hackathon by designing and pitching an impactful, AI-enabled technological solution.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+    badgeColor: "bg-purple-400/10 text-purple-300 border-purple-400/30",
+  },
+  {
+    type: "Certification",
+    badge: "NPTEL / IIT",
+    title: "Fundamentals of Artificial Intelligence",
+    issuer: "NPTEL — IIT Madras (SWAYAM)",
+    year: "2025",
+    description: "Certified mastery of foundational AI principles, heuristic search strategies, knowledge representation, logic, and intelligent agent architectures.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`,
+    badgeColor: "bg-cyan-400/10 text-cyan-300 border-cyan-400/30",
+  },
+  {
+    type: "Certification",
+    badge: "Data Science",
+    title: "Quantum X Data Science Certificate",
+    issuer: "Quantum X",
+    year: "Verified",
+    description: "Comprehensive qualification covering Python programming, exploratory data analysis (EDA), data visualization, and statistical modeling concepts.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+    badgeColor: "bg-emerald-400/10 text-emerald-300 border-emerald-400/30",
+  },
+];
+---
+
+<section id="education" class="py-16 border-t border-[var(--border-subtle)] text-[var(--white)]">
+  <div class="max-w-5xl mx-auto space-y-16">
+    <!-- Education Section -->
+    <div>
+      <div class="mb-10">
+        <span class="text-xs font-semibold tracking-wider uppercase text-[var(--sec)]">Academic Background</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-1">Education</h2>
+      </div>
+
+      <div class="space-y-6">
+        {
+          education.map((item) => (
+            <div class="p-6 sm:p-8 rounded-2xl bg-[var(--surface)] border border-[var(--border-subtle)] hover:border-[var(--sec)]/40 transition-all duration-300 shadow-lg">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
+                  {item.degree}
+                </h3>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-[var(--badge-bg)] text-[var(--sec-bright)] border border-[var(--border-subtle)] self-start sm:self-auto">
+                  {item.period}
+                </span>
+              </div>
+
+              <div class="text-sm sm:text-base text-[var(--sec-bright)] font-medium mb-1">
+                {item.institution}
+              </div>
+              <div class="text-xs sm:text-sm text-[var(--white-icon-muted)] mb-4">
+                {item.affiliation}
+              </div>
+
+              <ul class="space-y-2 pt-2 border-t border-[var(--border-subtle)]">
+                {item.highlights.map((point) => (
+                  <li class="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--white-icon)]">
+                    <span class="text-[var(--sec)] leading-5">▹</span>
+                    <span class="leading-relaxed">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Patents & Certifications Section -->
+    <div id="achievements">
+      <div class="mb-10">
+        <span class="text-xs font-semibold tracking-wider uppercase text-[var(--sec)]">Credentials & Honors</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-1">Patents, Awards & Certifications</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          achievements.map((item) => (
+            <div class="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border-subtle)] hover:border-[var(--sec)]/50 transition-all duration-300 flex flex-col justify-between group shadow-lg">
+              <div>
+                <div class="flex items-center justify-between gap-3 mb-4">
+                  <div class="p-2.5 rounded-xl bg-[var(--surface-muted)] border border-[var(--border-subtle)]" set:html={item.icon} />
+                  <span class={`text-xs px-2.5 py-1 rounded-full font-medium border ${item.badgeColor}`}>
+                    {item.badge}
+                  </span>
+                </div>
+
+                <h3 class="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--sec-bright)] transition-colors">
+                  {item.title}
+                </h3>
+
+                <p class="text-xs sm:text-sm text-[var(--sec)] font-medium mb-2.5">
+                  {item.issuer}
+                </p>
+
+                <p class="text-xs sm:text-sm text-[var(--white-icon)] leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+
+              <div class="pt-4 mt-4 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs text-[var(--white-icon-muted)] font-mono">
+                <span>{item.type}</span>
+                <span>{item.year}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

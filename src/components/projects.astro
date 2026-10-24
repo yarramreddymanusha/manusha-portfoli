@@ -1,0 +1,185 @@
+---
+interface Project {
+  title: string;
+  timeline: string;
+  category: string;
+  tags: string[];
+  summary: string;
+  highlights: string[];
+  githubUrl: string;
+  status: "Completed" | "In Active Development";
+  accentGradient: string;
+  iconSvg: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Smart Complaint Management System",
+    timeline: "Mar 2025 – Jun 2025",
+    category: "Full-Stack & AI Systems",
+    tags: ["Java", "MySQL", "AI Integration", "RBAC", "2FA", "AES Encryption"],
+    summary:
+      "A centralized operational workflow platform modernizing manual email-based grievance handling into a streamlined, automated institutional system.",
+    highlights: [
+      "Engineered automated AI-driven complaint categorization and intelligent routing across 5+ departments.",
+      "Implemented Role-Based Access Control (RBAC) supporting distinct user permission tiers for students, staff, and administrators.",
+      "Secured platform integrity through Two-Factor Authentication (2FA) and AES-based data encryption protocols.",
+      "Developed comprehensive analytics dashboards enabling administrative review of complaint trends and recurring issue categories.",
+    ],
+    githubUrl: "https://github.com/yarramreddymanusha",
+    status: "Completed",
+    accentGradient: "from-purple-900/40 via-indigo-900/20 to-transparent",
+    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--sec-bright)]"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>`,
+  },
+  {
+    title: "Personal Finance Analysis & Budget Optimization",
+    timeline: "Sep 2025 – Jan 2026",
+    category: "Data Engineering & Analytics",
+    tags: ["Python", "MySQL", "Pandas", "Matplotlib", "ETL Pipelines"],
+    summary:
+      "An end-to-end financial analytics platform designed to ingest, clean, transform, and evaluate income and expenditure datasets with predictive insights.",
+    highlights: [
+      "Built an end-to-end ETL pipeline to ingest, sanitize, and transform multi-source personal income and expense records.",
+      "Programmatically applied the 50-30-20 budgeting framework to analyze spending habits across diverse expense categories.",
+      "Automated monthly financial reporting workflows utilizing Pandas and Matplotlib for data processing and statistical plotting.",
+      "Engineered custom logic algorithms to detect recurring transactions and highlight potential overspending patterns.",
+    ],
+    githubUrl: "https://github.com/yarramreddymanusha",
+    status: "Completed",
+    accentGradient: "from-blue-900/40 via-cyan-900/20 to-transparent",
+    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><circle cx="19" cy="9" r="2"/></svg>`,
+  },
+  {
+    title: "Predictive Traffic Analysis Using Machine Learning",
+    timeline: "Ongoing",
+    category: "Machine Learning & Predictive Modeling",
+    tags: ["Python", "Machine Learning", "Data Analysis", "APIs", "Predictive Analytics"],
+    summary:
+      "A predictive analytics system forecasting urban traffic congestion levels and transit durations to deliver actionable route optimization.",
+    highlights: [
+      "Developing machine learning models to forecast traffic congestion levels and travel durations for targeted transit corridors.",
+      "Integrating historical traffic telemetry, real-time meteorological conditions, and calendar datasets to isolate key influencing factors.",
+      "Factoring in weekends, national holidays, and localized special events to maximize predictive accuracy.",
+      "Designing actionable travel recommendations optimizing route selection, estimated travel time, departure timing, and congestion avoidance.",
+    ],
+    githubUrl: "https://github.com/yarramreddymanusha",
+    status: "In Active Development",
+    accentGradient: "from-emerald-900/40 via-teal-900/20 to-transparent",
+    iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>`,
+  },
+];
+---
+
+<section id="projects" class="py-16 border-t border-[var(--border-subtle)] text-[var(--white)]">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <span class="text-xs font-semibold tracking-wider uppercase text-[var(--sec)]">Featured Work</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-1">Key Technical Projects</h2>
+      </div>
+      <p class="text-sm md:text-base text-[var(--white-icon)] max-w-md">
+        Proven capability in engineering AI-integrated web applications, robust ETL pipelines, and predictive analytics models.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8">
+      {
+        projects.map((project) => (
+          <div class="group relative rounded-2xl bg-[var(--surface)] border border-[var(--border-subtle)] hover:border-[var(--sec)]/60 transition-all duration-300 overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[var(--sec)]/5">
+            <!-- Background Ambient Glow -->
+            <div class={`absolute inset-0 bg-gradient-to-r ${project.accentGradient} opacity-60 group-hover:opacity-100 transition-opacity pointer-events-none`}></div>
+
+            <div class="relative p-6 sm:p-8 flex flex-col justify-between h-full">
+              <!-- Top Row: Icon, Category & Status Badge -->
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                  <div class="p-2.5 rounded-xl bg-[var(--surface-muted)] border border-[var(--border-subtle)]" set:html={project.iconSvg} />
+                  <div>
+                    <span class="text-xs uppercase tracking-wider text-[var(--white-icon)] font-semibold">
+                      {project.category}
+                    </span>
+                    <span class="text-xs text-[var(--white-icon-muted)] block font-medium">
+                      {project.timeline}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${
+                    project.status === "Completed"
+                      ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30"
+                      : "bg-amber-500/10 text-amber-300 border-amber-500/30"
+                  }`}>
+                    <span class={`w-1.5 h-1.5 rounded-full ${project.status === "Completed" ? "bg-emerald-400" : "bg-amber-400 animate-pulse"}`}></span>
+                    {project.status}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Project Title & Summary -->
+              <h3 class="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--sec-bright)] transition-colors">
+                {project.title}
+              </h3>
+              <p class="text-sm sm:text-base text-[var(--white-icon)] leading-relaxed mb-6">
+                {project.summary}
+              </p>
+
+              <!-- Technical Highlights -->
+              <div class="mb-6 p-4 rounded-xl bg-[var(--surface-muted)] border border-[var(--border-subtle)]">
+                <h4 class="text-xs font-semibold text-[var(--sec-bright)] uppercase tracking-wider mb-2.5">
+                  Core Implementation & Architecture
+                </h4>
+                <ul class="space-y-2">
+                  {project.highlights.map((item) => (
+                    <li class="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--white-icon)]">
+                      <span class="text-[var(--sec)] leading-5">▹</span>
+                      <span class="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Bottom Row: Tech Tags & GitHub Link Button -->
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-[var(--border-subtle)]">
+                <div class="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--tag-bg)] text-[var(--text-primary)] border border-[var(--border-subtle)]">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${project.title} on GitHub`}
+                  class="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl bg-[var(--surface-muted)] hover:bg-[var(--sec)] hover:text-white dark:hover:text-black text-[var(--text-primary)] border border-[var(--border-subtle)] text-xs sm:text-sm font-semibold transition-all duration-300 flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sec)]"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+                    <path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.501 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z" />
+                  </svg>
+                  <span>Source on GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- GitHub CTA Banner -->
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/yarramreddymanusha"
+      aria-label="View more repositories on GitHub"
+      class="w-full flex items-center justify-center gap-3 mt-10 text-[var(--white-icon)] hover:text-[var(--text-primary)] transition duration-300 border border-[var(--border-subtle)] hover:border-[var(--sec)] p-4 rounded-2xl bg-[var(--surface)] hover:bg-[var(--surface-hover)] group"
+    >
+      <span class="text-sm sm:text-base font-medium">Explore all repositories and code on GitHub</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 group-hover:translate-x-1 transition-transform">
+        <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+      </svg>
+    </a>
+  </div>
+</section>

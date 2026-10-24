@@ -1,0 +1,77 @@
+---
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const techList = [
+  { name: "Python", icon: "python.svg" },
+  { name: "Java", icon: "java.svg" },
+  { name: "C", icon: "c.svg" },
+  { name: "MySQL", icon: "mysql.svg" },
+  { name: "Pandas", icon: "pandas.svg" },
+  { name: "Matplotlib", icon: "matplotlib.svg" },
+  { name: "HTML5", icon: "HTML5.svg" },
+  { name: "CSS3", icon: "CSS3.svg" },
+  { name: "JavaScript", icon: "javaScript.svg" },
+  { name: "Git", icon: "git.svg" },
+  { name: "React", icon: "react.svg" },
+  { name: "Bash", icon: "bash.svg" },
+];
+---
+
+<div class="relative overflow-x-hidden py-8" role="region" aria-label="Technologies and skills">
+  <div class="pointer-events-none absolute inset-y-0 left-0 w-24 md:w-36 bg-gradient-to-r from-[var(--background)] to-transparent z-20"></div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-36 bg-gradient-to-l from-[var(--background)] to-transparent z-20"></div>
+
+  <div class="flex animate-scroll w-max motion-reduce:animate-none">
+    {
+      [...techList, ...techList].map((tech, index) => (
+        <div 
+          class="flex items-center gap-2.5 pr-10 md:pr-16 group transition-all duration-300"
+          aria-hidden={index >= techList.length ? "true" : "false"}
+        >
+          <img
+            src={`${baseUrl}/svg/${tech.icon}`}
+            alt={tech.name}
+            class="h-7 w-7 object-contain transition-transform group-hover:scale-125 opacity-70 group-hover:opacity-100"
+            width="28"
+            height="28"
+            loading={index < techList.length ? "eager" : "lazy"}
+            decoding="async"
+          />
+          <span class="text-base md:text-lg font-medium text-[var(--white-icon)] group-hover:text-white transition-colors whitespace-nowrap">
+            {tech.name}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style is:global>
+  @keyframes scroll {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+  .animate-scroll {
+    animation: scroll 45s linear infinite;
+  }
+
+  @media (min-width: 768px) {
+    .animate-scroll {
+      animation-duration: 40s;
+    }
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll {
+      animation: none !important;
+    }
+  }
+</style>

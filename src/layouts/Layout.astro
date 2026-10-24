@@ -1,0 +1,224 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Yarramreddy Manusha" } = Astro.props;
+const siteUrl = "https://yarramreddymanusha.github.io/";
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title.includes("Portfolio") ? title : `${title} | Portfolio`}</title>
+    <meta
+      name="description"
+      content="Portfolio of Yarramreddy Manusha, Computer Science Engineering undergraduate with hands-on proficiency in Python, Java, MySQL, AI integration, robust ETL pipelines, and predictive analytics."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href={`${baseUrl}/favicon.png`} />
+    <link rel="canonical" href={siteUrl} />
+
+    <link
+      rel="preload"
+      href={`${baseUrl}/fonts/montserrat-latin-wght-normal.woff2`}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <meta
+      property="og:title"
+      content="Yarramreddy Manusha | Computer Science Engineer & Software Developer"
+    />
+    <meta
+      property="og:description"
+      content="Explore projects, skills, education, patents, and certifications of Yarramreddy Manusha."
+    />
+    <meta
+      property="og:image"
+      content={`${siteUrl}og.image.png`}
+    />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:site_name"
+      content="Yarramreddy Manusha Portfolio"
+    />
+
+    <!-- Structured Data (JSON-LD) for Search Engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Yarramreddy Manusha",
+        "alternateName": "Manusha Yarramreddy",
+        "url": "https://yarramreddymanusha.github.io/",
+        "image": "https://yarramreddymanusha.github.io/og.image.png",
+        "email": "yarramreddymanusha@gmail.com",
+        "telephone": "+91 96204 91391",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangalore",
+          "addressCountry": "India"
+        },
+        "sameAs": [
+          "https://github.com/yarramreddymanusha",
+          "https://www.linkedin.com/in/yarramreddy-manusha-6392662b1"
+        ],
+        "jobTitle": "Computer Science Engineer & Software Developer",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "New Horizon College of Engineering, Bangalore"
+        },
+        "description": "Computer Science Engineering undergraduate with technical proficiency in Python, Java, C, MySQL, data analysis, and machine learning."
+      }
+    </script>
+    <!-- Anti-Flash Theme Initializer -->
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var pref = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          var theme = saved || pref;
+          document.documentElement.setAttribute("data-theme", theme);
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-[var(--background)] text-[var(--text-primary)] transition-colors duration-300 sm:px-28 lg:px-20 px-6 min-h-screen selection:bg-[var(--sec)] selection:text-white pb-24 md:pb-0">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-[var(--sec)] focus:text-white dark:focus:text-black focus:font-semibold focus:rounded-lg focus:shadow-xl focus:outline-none"
+    >
+      Skip to main content
+    </a>
+    <script>
+      document.querySelector('a[href="#main-content"]')?.addEventListener("click", () => {
+        const main = document.getElementById("main-content");
+        if (main) {
+          main.focus();
+        }
+      });
+    </script>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Montserrat Variable";
+    src: url("/fonts/montserrat-latin-wght-normal.woff2")
+      format("woff2-variations");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root,
+  [data-theme="dark"] {
+    --background: #0d0e12;
+    --surface: #14161f;
+    --surface-card: rgba(20, 22, 31, 0.85);
+    --surface-muted: #181926;
+    --surface-input: #0d0e12;
+    --surface-hover: #1e202e;
+    --text-primary: #f1f3f9;
+    --text-secondary: #b8bdcc;
+    --text-muted: #9ba1b6;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(164, 118, 255, 0.4);
+    --sec: #a476ff;
+    --sec-bright: #bf95ff;
+    --sec-glow: rgba(164, 118, 255, 0.25);
+    --focus-ring: #ffffff;
+    --focus-offset: #14161f;
+    --nav-bg: rgba(13, 14, 18, 0.90);
+    --nav-scrolling: rgba(13, 14, 18, 0.96);
+    --tag-bg: #1e202e;
+    --badge-bg: #1f2333;
+
+    /* Legacy backward-compatibility aliases */
+    --white: #f1f3f9;
+    --white-icon: #b8bdcc;
+    --white-icon-muted: #9ba1b6;
+    --white-icon-tr: rgba(255, 255, 255, 0.08);
+    --component-bg: #14161f;
+    --card-bg: rgba(20, 22, 31, 0.7);
+  }
+
+  [data-theme="light"] {
+    --background: #f8f9fc;
+    --surface: #ffffff;
+    --surface-card: rgba(255, 255, 255, 0.95);
+    --surface-muted: #f0f2f8;
+    --surface-input: #ffffff;
+    --surface-hover: #f3f4fa;
+    --text-primary: #0f1117;
+    --text-secondary: #474d61;
+    --text-muted: #646c82;
+    --border-subtle: rgba(15, 17, 23, 0.10);
+    --border-hover: rgba(124, 58, 237, 0.45);
+    --sec: #7c3aed;
+    --sec-bright: #6d28d9;
+    --sec-glow: rgba(124, 58, 237, 0.15);
+    --focus-ring: #7c3aed;
+    --focus-offset: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.88);
+    --nav-scrolling: rgba(255, 255, 255, 0.97);
+    --tag-bg: #f0f2f8;
+    --badge-bg: #ede9fe;
+
+    /* Legacy backward-compatibility aliases mapped to high-contrast equivalents */
+    --white: #0f1117;
+    --white-icon: #474d61;
+    --white-icon-muted: #646c82;
+    --white-icon-tr: rgba(15, 17, 23, 0.10);
+    --component-bg: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.95);
+  }
+
+  * {
+    font-family:
+      "Montserrat Variable",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
+    box-sizing: border-box;
+  }
+
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--surface-muted);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--sec);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--surface-muted) var(--background);
+  }
+</style>
